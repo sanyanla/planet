@@ -47,24 +47,30 @@ export const CO_CREATOR = {
   ],
 } as const
 
+/** 当前运营站长：统一从个人引导页进入。 */
+export const OPERATOR = {
+  name: 'sanyan',
+  label: '当前运营站长',
+  url: 'https://三言.中国',
+  note: '个人引导页',
+} as const
+
 /** 主页那一行 */
 export function CreatorLine() {
   return (
-    <div className="creatorcredits">{[CREATOR, CO_CREATOR].map((creator,index)=><div className="creatorline" key={creator.name}>
-      <span className="creatorline__copyright">{index===0?'© 2026':''}</span>
-      <span className="creatorline__name">{creator.name}</span>
-      {creator.links.map((link) => (
-          <a
-            key={link.id}
-            href={link.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            title={`${link.label} ${link.handle}${link.note ? ` · ${link.note}` : ''}`}
-          >
-            {link.label}
-          </a>
-      ))}
-    </div>)}
+    <div className="creatorcredits">
+      <div className="creatorline">
+        <span className="creatorline__copyright">© 2026</span>
+        <span className="creatorline__name">sanyan</span>
+        <a
+          href={OPERATOR.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          title={OPERATOR.note}
+        >
+          {OPERATOR.note}
+        </a>
+      </div>
     </div>
   )
 }
@@ -101,6 +107,16 @@ export function CreatorPanel() {
       </ul>
       <p className="creatorpanel__name">{CO_CREATOR.name}</p>
       <ul className="creatorpanel__links">{CO_CREATOR.links.map(link=><li key={link.id}><a href={link.url} target="_blank" rel="noopener noreferrer"><b>{link.label}</b><span>{link.handle}</span><em>{link.note}</em></a></li>)}</ul>
+      <p className="creatorpanel__name">{OPERATOR.label}</p>
+      <ul className="creatorpanel__links">
+        <li>
+          <a href={OPERATOR.url} target="_blank" rel="noopener noreferrer">
+            <b>{OPERATOR.name}</b>
+            <span>{OPERATOR.name}</span>
+            <em>{OPERATOR.note}</em>
+          </a>
+        </li>
+      </ul>
       <p className="creatorpanel__foot">© 2026 {CREATOR.name} · All rights reserved</p>
     </div>
   )
