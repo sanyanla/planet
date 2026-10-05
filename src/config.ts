@@ -18,9 +18,7 @@ export interface SocialLink { label: string; url: string; }
 
 /** TODO: 换成你的主页地址 */
 export const SOCIAL: SocialLink[] = [
-  { label: "小红书", url: "https://www.xiaohongshu.com/user/profile/REPLACE_ME" },
-  { label: "哔哩哔哩", url: "https://space.bilibili.com/REPLACE_ME" },
-  { label: "抖音", url: "https://www.douyin.com/user/REPLACE_ME" },
+  { label: "sanyan引导页", url: "https://三言.中国" },
 ];
 
 export const TELEMETRY = [
